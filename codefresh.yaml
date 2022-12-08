@@ -30,24 +30,24 @@ steps:
   #         - gosec ./...
 
 
-  # build:
-  #   stage: "build"
-  #   title: "Building Docker image"
-  #   type: "build"
-  #   image_name: thinkbiggerltd/helm-promotion
-  #   working_directory: "${{clone}}"
-  #   tags:
-  #   - "latest"
-  #   - '${{CF_SHORT_REVISION}}'
-  #   dockerfile: "Dockerfile"
-  #   # disable_push: true
-  #   # registry: github
+  build:
+    stage: "build"
+    title: "Building Docker image"
+    type: "build"
+    image_name: thinkbiggerltd/helm-promotion
+    working_directory: "${{clone}}"
+    tags:
+    - "latest"
+    - '${{CF_SHORT_REVISION}}'
+    dockerfile: "Dockerfile"
+    # disable_push: true
+    # registry: github
 
-  # PushToDockerRegistry:
-  #   type: push
-  #   candidate: '${{build}}'
-  #   tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
-  #   # registry: 'github'
+  PushToDockerRegistry:
+    type: push
+    candidate: '${{build}}'
+    tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+    # registry: 'github'
 
   deployStaging:
       title: Deploying to Staging
