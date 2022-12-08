@@ -58,7 +58,7 @@ steps:
       service: helm-promotion #the service you would like to update the deployment in
       candidate:
         image: '${{build}}'
-        registry: thinkbiggerltd
+        registry: 'thinkbiggerltd'
 
 
   # deployStaging:
