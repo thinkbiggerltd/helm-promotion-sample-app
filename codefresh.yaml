@@ -41,13 +41,13 @@ steps:
     - '${{CF_SHORT_REVISION}}'
     dockerfile: "Dockerfile"
     # disable_push: true
-    registry: github
+    # registry: github
 
   PushToDockerRegistry:
     type: push
     candidate: '${{build}}'
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
-    registry: 'github'
+    # registry: 'github'
 
   deployStaging:
       title: Deploying to Staging
@@ -58,7 +58,7 @@ steps:
       service: helm-promotion #the service you would like to update the deployment in
       candidate:
         image: '${{build}}'
-        registry: 'github'
+        # registry: 'github'
 
 
   # deployStaging:
