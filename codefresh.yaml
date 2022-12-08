@@ -49,16 +49,16 @@ steps:
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
     registry: 'github'
 
- deployStaging:
-    title: Deploying to Staging
-    type: deploy
-    kind: kubernetes
-    cluster: 'codefresh-sandbox' #the name specified when you added the cluster
-    namespace: staging #the namespace you wish to deploy into
-    service: helm-promotion #the service you would like to update the deployment in
-    candidate:
-      image: '${{build}}'
-      registry: 'github'
+  deployStaging:
+      title: Deploying to Staging
+      type: deploy
+      kind: kubernetes
+      cluster: 'codefresh-sandbox' #the name specified when you added the cluster
+      namespace: staging #the namespace you wish to deploy into
+      service: helm-promotion #the service you would like to update the deployment in
+      candidate:
+        image: '${{build}}'
+        registry: 'github'
 
 
   # deployStaging:
